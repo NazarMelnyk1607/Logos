@@ -1,7 +1,5 @@
 package com.logos.Exam_Java_Core;
 
-import com.google.gson.Gson;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,6 +11,9 @@ public class DeviceService {
     public List<Device> devices;
 
     public void readFromFile(){
+
+
+
         StringBuffer concat = new StringBuffer();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\nazar\\Downloads\\task_exam.txt"));
@@ -20,8 +21,9 @@ public class DeviceService {
 
             while ((line = bufferedReader.readLine()) != null){
                 concat.append(line);
-                if(concat.equals("."))
-                devices.add(convertStringInObject(String.valueOf(concat)));
+                if(concat.equals(".")) {
+                    devices.add(convertStringInObject(String.valueOf(concat)));
+                }
             }
             bufferedReader.close();
         } catch (FileNotFoundException e) {
